@@ -29,7 +29,8 @@ def build_parser() -> argparse.ArgumentParser:
     )
 
     train_parser = subparsers.add_parser(
-        "train-reconstruction", help="Run reconstruction pipeline."
+        "train-reconstruction",
+        help="Run reconstruction pipeline."
     )
     train_parser.add_argument(
         "--config",
