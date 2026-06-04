@@ -11,7 +11,6 @@ from .schemas import EnvironmentalObservationSchema
 from .validators import drop_duplicates, parse_datetime_column, require_columns
 
 
-
 def load_environmental_dataset(
     path: str | Path,
     schema: EnvironmentalObservationSchema,

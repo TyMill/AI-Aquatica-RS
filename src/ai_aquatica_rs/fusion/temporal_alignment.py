@@ -94,9 +94,7 @@ def align_exact(
         sort=False,
     )
     merged["match_type"] = "exact"
-    merged["time_delta_days"] = (
-        merged["matched_rs_date"] - merged[on]
-    ).dt.total_seconds() / 86_400
+    merged["time_delta_days"] = (merged["matched_rs_date"] - merged[on]).dt.total_seconds() / 86_400
     return merged
 
 
@@ -142,9 +140,9 @@ def align_nearest(
     right_prepared = right_prepared.rename(columns={on: "matched_rs_date"})
 
     left_sorted = left_prepared.sort_values([on, by, "left_row_id"]).reset_index(drop=True)
-    right_sorted = right_prepared.sort_values(["matched_rs_date", by, "matched_rs_row_id"]).reset_index(
-        drop=True
-    )
+    right_sorted = right_prepared.sort_values(
+        ["matched_rs_date", by, "matched_rs_row_id"]
+    ).reset_index(drop=True)
 
     merged = pd.merge_asof(
         left_sorted,
@@ -158,7 +156,5 @@ def align_nearest(
     )
 
     merged["match_type"] = "nearest"
-    merged["time_delta_days"] = (
-        merged["matched_rs_date"] - merged[on]
-    ).dt.total_seconds() / 86_400
+    merged["time_delta_days"] = (merged["matched_rs_date"] - merged[on]).dt.total_seconds() / 86_400
     return merged.sort_values("left_row_id").reset_index(drop=True)

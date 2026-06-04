@@ -28,7 +28,9 @@ def build_parser() -> argparse.ArgumentParser:
         help="Path to YAML configuration file.",
     )
 
-    train_parser = subparsers.add_parser("train-reconstruction", help="Run reconstruction pipeline.")
+    train_parser = subparsers.add_parser(
+        "train-reconstruction", help="Run reconstruction pipeline."
+    )
     train_parser.add_argument(
         "--config",
         required=True,

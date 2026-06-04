@@ -114,9 +114,7 @@ def _validate_required_sections(raw_config: dict[str, Any]) -> None:
         if not isinstance(raw_config.get(section), dict)
     ]
     if invalid:
-        raise ConfigError(
-            f"Top-level sections must be mappings: {', '.join(invalid)}"
-        )
+        raise ConfigError(f"Top-level sections must be mappings: {', '.join(invalid)}")
 
 
 def load_config(path: str | Path) -> AppConfig:

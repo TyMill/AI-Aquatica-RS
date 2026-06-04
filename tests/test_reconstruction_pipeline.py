@@ -11,7 +11,6 @@ import yaml
 
 from ai_aquatica_rs.pipelines import run_training_pipeline
 
-
 REPO_ROOT = Path(__file__).resolve().parents[1]
 SRC_PATH = REPO_ROOT / "src"
 

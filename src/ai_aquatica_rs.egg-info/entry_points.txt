@@ -1,0 +1,2 @@
+[console_scripts]
+ai-aquatica-rs = ai_aquatica_rs.cli:main

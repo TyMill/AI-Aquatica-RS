@@ -10,7 +10,6 @@ from ai_aquatica_rs.models.reconstruction import (
     get_reconstruction_method_specs,
 )
 
-
 CORE_METHODS = {
     "median",
     "mean",

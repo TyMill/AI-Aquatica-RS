@@ -7,7 +7,6 @@ from collections.abc import Sequence
 import pandas as pd
 from pandas.api.types import is_numeric_dtype
 
-
 DEFAULT_DATE_COLUMN = "date"
 
 

@@ -9,7 +9,6 @@ import pandas as pd
 from ai_aquatica_rs.exceptions import DataValidationError
 
 
-
 def require_columns(df: pd.DataFrame, required_columns: Iterable[str]) -> None:
     """Ensure a DataFrame contains all required columns.
 
@@ -25,8 +24,7 @@ def require_columns(df: pd.DataFrame, required_columns: Iterable[str]) -> None:
     if missing:
         available = list(df.columns)
         raise DataValidationError(
-            "Missing required columns: "
-            f"{missing}. Available columns: {available}."
+            f"Missing required columns: {missing}. Available columns: {available}."
         )
 
 

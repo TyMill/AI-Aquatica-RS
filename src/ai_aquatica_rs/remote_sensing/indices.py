@@ -10,7 +10,6 @@ from collections.abc import Mapping
 
 import numpy as np
 
-
 ArrayLike = np.ndarray
 
 
@@ -33,7 +32,9 @@ def _as_float_array(name: str, values: ArrayLike) -> np.ndarray:
         raise ValueError(f"Band '{name}' must contain numeric values.") from exc
 
 
-def _require_same_shape(left: np.ndarray, right: np.ndarray, *, left_name: str, right_name: str) -> None:
+def _require_same_shape(
+    left: np.ndarray, right: np.ndarray, *, left_name: str, right_name: str
+) -> None:
     """Validate two arrays have identical shape.
 
     Raises:
@@ -41,8 +42,7 @@ def _require_same_shape(left: np.ndarray, right: np.ndarray, *, left_name: str, 
     """
     if left.shape != right.shape:
         raise ValueError(
-            f"Shape mismatch for '{left_name}' and '{right_name}': "
-            f"{left.shape} != {right.shape}."
+            f"Shape mismatch for '{left_name}' and '{right_name}': {left.shape} != {right.shape}."
         )
 
 

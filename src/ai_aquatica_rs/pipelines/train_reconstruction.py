@@ -135,9 +135,7 @@ def run_training_pipeline(config_path: str | Path) -> ReconstructionPipelineResu
         random_state=config.random_state,
     )
 
-    prediction_output = split.validation_rows[
-        [config.station_id_column, config.date_column]
-    ].copy()
+    prediction_output = split.validation_rows[[config.station_id_column, config.date_column]].copy()
     prediction_output[config.target_column] = split.y_valid.reset_index(drop=True)
     for column in predictions_df.columns:
         prediction_output[column] = predictions_df[column].reset_index(drop=True)

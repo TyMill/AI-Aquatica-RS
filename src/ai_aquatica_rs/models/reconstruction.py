@@ -150,9 +150,7 @@ def _resolve_methods(methods: Sequence[str] | None) -> list[str]:
     selected_methods = list(specs) if methods is None else list(methods)
     unknown_methods = sorted(set(selected_methods) - set(specs))
     if unknown_methods:
-        raise ValueError(
-            "Unknown reconstruction methods: " + ", ".join(unknown_methods) + "."
-        )
+        raise ValueError("Unknown reconstruction methods: " + ", ".join(unknown_methods) + ".")
     return selected_methods
 
 
@@ -299,7 +297,9 @@ def benchmark_reconstruction(
         raise ValueError("test_size must be between 0 and 1.")
 
     complete_cases = _prepare_complete_cases(data, target_column, feature_columns)
-    prepared_feature_columns = [column for column in complete_cases.columns if column != target_column]
+    prepared_feature_columns = [
+        column for column in complete_cases.columns if column != target_column
+    ]
     X_train, X_valid, y_train, y_valid = train_test_split(
         complete_cases[prepared_feature_columns],
         complete_cases[target_column],
